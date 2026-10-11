@@ -1,0 +1,126 @@
+---
+const fullstackPosts = [
+    {
+        title: "I'm a Frontend Developer from Indonesia with 1.5 years of experience in React.js.",
+        url: "/fullstack/post-1",
+    },
+    {
+        title: "I'm a Frontend Developer from Indonesia with 1.5 years of experience in React.js.",
+        url: "/fullstack/post-2",
+    },
+];
+
+const devopsPosts = [
+    {
+        title: "I'm a Frontend Developer from Indonesia with 1.5 years of experience in React.js.",
+        url: "/devops/post-1",
+    },
+    {
+        title: "I'm a Frontend Developer from Indonesia with 1.5 years of experience in React.js.",
+        url: "/devops/post-2",
+    },
+];
+---
+
+<div class="category-grid">
+    <!-- Fullstack Column -->
+    <section class="category-card">
+        <a href="/fullstack" class="category-header">
+            <h2>Fullstack</h2>
+            <span class="arrow-icon">&rarr;</span>
+        </a>
+        <ul class="post-list">
+            {
+                fullstackPosts.map((post) => (
+                    <li>
+                        <a href={post.url} class="post-link">
+                            {post.title}
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+    </section>
+
+    <!-- DevOps Column -->
+    <section class="category-card">
+        <a href="/devops" class="category-header">
+            <h2>Devops</h2>
+            <span class="arrow-icon">&rarr;</span>
+        </a>
+        <ul class="post-list">
+            {
+                devopsPosts.map((post) => (
+                    <li>
+                        <a href={post.url} class="post-link">
+                            {post.title}
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+    </section>
+</div>
+
+<style>
+    .category-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 40px;
+        margin-bottom: 56px;
+    }
+
+    @media (min-width: 768px) {
+        .category-grid {
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+        }
+    }
+
+    .category-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-decoration: none;
+        margin-bottom: 20px;
+    }
+
+    .category-header h2 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #a3e635;
+        margin: 0;
+    }
+
+    .arrow-icon {
+        font-size: 1.5rem;
+        color: #a3e635;
+        transition: transform 0.2s ease;
+    }
+
+    .category-header:hover .arrow-icon {
+        transform: translateX(6px);
+    }
+
+    .post-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .post-link {
+        color: #e2e8f0;
+        text-decoration: underline;
+        text-underline-offset: 4px;
+        line-height: 1.5;
+        font-size: 0.95rem;
+        transition: color 0.2s ease;
+    }
+
+    .post-link:hover {
+        color: #a3e635;
+    }
+</style>

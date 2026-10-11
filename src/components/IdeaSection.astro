@@ -1,0 +1,122 @@
+---
+const ideaPosts = [
+    {
+        title: "Kenapa Saya membuat blog di Astro js",
+        date: "Oktober 2026",
+        url: "/ide/kenapa-astro",
+    },
+    {
+        title: "Apakah Kita Akan Digantikan oleh AI",
+        date: "Oktober 2026",
+        url: "/ide/digantikan-ai",
+    },
+    {
+        title: "Sejauh Apa AI Menambah Produktifitas",
+        date: "Oktober 2026",
+        url: "/ide/ai-produktifitas",
+    },
+];
+---
+
+<section class="idea-section">
+    <a href="/ide" class="category-header">
+        <h2>Idea</h2>
+        <span class="arrow-icon">&rarr;</span>
+    </a>
+
+    <div class="divider-line"></div>
+
+    <ul class="idea-list">
+        {
+            ideaPosts.map((post) => (
+                <li class="idea-item">
+                    <a href={post.url} class="idea-title">
+                        {post.title}
+                    </a>
+                    <span class="date-badge">{post.date}</span>
+                </li>
+            ))
+        }
+    </ul>
+</section>
+
+<style>
+    .idea-section {
+        margin-top: 40px;
+    }
+
+    .category-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-decoration: none;
+        margin-bottom: 16px;
+    }
+
+    .category-header h2 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #a3e635;
+        margin: 0;
+    }
+
+    .arrow-icon {
+        font-size: 1.5rem;
+        color: #a3e635;
+        transition: transform 0.2s ease;
+    }
+
+    .category-header:hover .arrow-icon {
+        transform: translateX(6px);
+    }
+
+    .divider-line {
+        width: 100%;
+        height: 1px;
+        background-color: #475569;
+        margin-bottom: 24px;
+    }
+
+    .idea-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .idea-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 0;
+        border-bottom: 1px dashed #334155;
+        gap: 16px;
+    }
+
+    .idea-title {
+        color: #f1f5f9;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: color 0.2s ease;
+    }
+
+    .idea-title:hover {
+        color: #a3e635;
+    }
+
+    .date-badge {
+        border: 1px solid #a3e635;
+        color: #a3e635;
+        padding: 6px 14px;
+        font-size: 0.85rem;
+        font-weight: 500;
+        border-radius: 2px;
+        white-space: nowrap;
+    }
+
+    @media (max-width: 640px) {
+        .idea-item {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+</style>

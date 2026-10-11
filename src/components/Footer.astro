@@ -1,6 +1,25 @@
 ---
-const name = Astro.props.name;
+const year = new Date(Date.now()).getFullYear();
 ---
 
-<h1>Ini Footer</h1>
-<p>Nama: {name}</p>
+<footer class="description-text">Est {year}</footer>
+
+<style>
+    .description-text {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: #e2e8f0;
+        margin-top: 32px;
+        margin-bottom: 48px;
+        max-width: 800px;
+        text-align: center;
+    }
+
+    @media (max-width: 640px) {
+        .description-text {
+            font-size: 0.95rem;
+            margin-top: 24px;
+            margin-bottom: 36px;
+        }
+    }
+</style>
